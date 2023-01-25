@@ -1,0 +1,66 @@
+.circle-bottom-1,
+.circle-bottom-2,
+.circle-top-1,
+.circle-top-2,
+.oval-bottom,
+.oval-top {
+    z-index: -1;
+    position: fixed
+}
+
+.circle-top-1,
+.circle-top-2 {
+    right: 40%;
+    bottom: 20%
+}
+
+.circle-path-anim-1 {
+    stroke-dasharray: 20;
+    -webkit-animation: dash 15s infinite;
+    animation: dash 15s infinite
+}
+
+.circle-path-anim-2 {
+    stroke-dasharray: 20;
+    -webkit-animation: dash 12s infinite;
+    animation: dash 12s infinite
+}
+
+.oval-top {
+    right: 40%;
+    bottom: 20%
+}
+
+.oval-bottom {
+    bottom: 0
+}
+
+.circle-bottom-1,
+.oval-bottom {
+    right: 0;
+    width: 60%;
+    overflow: hidden
+}
+
+.circle-bottom-1 {
+    bottom: 4%
+}
+
+.circle-bottom-2 {
+    right: 4%;
+    bottom: 7%;
+    width: 60%;
+    overflow: hidden
+}
+
+@-webkit-keyframes dash {
+    to {
+        stroke-dashoffset: 1000
+    }
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 1000
+    }
+}

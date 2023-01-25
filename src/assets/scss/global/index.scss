@@ -14,8 +14,140 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h1,h2,h3,h4 { font-family: 'Titillium Web'}
+
 
 .color-primary {
   color: $primary-color;
+}
+
+:root {
+  --purple-1: #7d33b4;
+  --purple-2: #be7cef;
+  --purple-3: #e8c9ff;
+  --purple-4: #f5e7ff;
+  --green-1: #15826f;
+  --green-2: #36b59f;
+  --green-3: #6eecd6;
+  --green-4: #b1fff1;
+  --red-1: #811d1d;
+  --red-2: #e54f4f;
+  --red-3: #ffc9c9;
+  --red-4: #ffebeb;
+  --yellow-1: #907e14;
+  --yellow-2: #f1da53;
+  --yellow-3: #feef9a;
+  --yellow-4: #fff9da;
+  --secondary-text: #aaa;
+  --footer-fill: #372452
+}
+
+a,
+a:active,
+a:focus {
+  text-decoration: none
+}
+
+a:active,
+a:focus {
+  outline: none;
+  border: none
+}
+
+h1 {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 2rem;
+  color: #000;
+  letter-spacing: .5px;
+  line-height: 2rem
+}
+h3 {
+  font-family: 'Titillium Web', sans-serif;
+}
+h5,
+h6 {
+  padding-top: 1rem
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: .21px;
+  line-height: 1.125rem;
+  margin: 0;
+  padding-bottom: 0
+}
+
+h4 {
+  padding-top: 0
+}
+
+h5 {
+  font-family: "Titillium Web", sans-serif
+}
+
+h6 {
+  font-family: "Lato", sans-serif
+}
+
+.secondary {
+  color: grey
+}
+
+p {
+  line-height: 1.5rem
+}
+
+p,
+small {
+  font-family: "Lato", sans-serif
+}
+
+small {
+  font-size: .75rem
+}
+
+strong {
+  font-weight: 700;
+  color: #000
+}
+
+.button-primary,
+.button-secondary {
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    padding: .5rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    border-radius: 7px;
+    width: 8rem;
+    border: 1px solid transparent;
+    font-size: .875rem;
+    box-shadow: 2px 2px 17px silver;
+    transition: all .5s;
+    letter-spacing: 0
+}
+
+.button-primary {
+    background-color: #7d33b4;
+    background-color: var(--purple-1)
+}
+
+.button-secondary {
+    background-color: #36b59f;
+    background-color: var(--green-2)
+}
+
+.button-primary:hover,
+.button-secondary:hover {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    letter-spacing: 2px
+}
+
+.text-faded {
+  color: #999999;
 }
