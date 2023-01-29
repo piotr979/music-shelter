@@ -1,7 +1,9 @@
 import React from 'react';
 
 const DataContext = React.createContext( {
-    featuredArtists: (artists) => {}
+    favArtists: [],
+    featuredArtists: (artists) => {},
+    addToFav: (item) => {}
 })
 
 export default DataContext;

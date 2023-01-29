@@ -1,37 +1,38 @@
 import { useState, useEffect } from "react";
 import ImageThumb from "../UI/ImageThumb"
+import dummyThumb from './../../assets/images/dummy-thumb.webp'
 import useHttp from "../../hooks/use-http"
 const SlickScroll = (props) => {
 
-    let artistsIds = [ 112025, 112026, 112027, 112028, 112029, 112030, 112031, 112032 ];
+    let artistsIds = [112025, 112026, 112027, 112028, 112029, 112030, 112031, 112032];
     const [artists, setArtists] = useState([]);
 
     const [isLoaded, setIsLoaded] = useState(false);
 
     const setPlaceholders = () => {
         let placeholders = [];
-        
+
         // 1. fill with empty values
-    for (let i = 0; i < 8; i++) {
-        placeholders.push({
-            id: i,
-            name:'',
-            image: '',
-            label: '',
-            country: '',
-        })
+        for (let i = 0; i < 8; i++) {
+            placeholders.push({
+                id: i,
+                name: '',
+                image: '',
+                label: '',
+                country: '',
+            })
+        }
+        setArtists(placeholders);
     }
-    setArtists(placeholders);
-}
-     // 2. load all data at once
-    
-       
+    // 2. load all data at once
+
+
     const getArtist = artistsData => {
 
-        const newArtists = artistsData.map( artist => {
+        const newArtists = artistsData.map(artist => {
             const art = artist.artists[0];
             return {
-            
+
                 id: art.idArtist,
                 name: art.strArtist,
                 image: art.strArtistThumb,
@@ -41,37 +42,36 @@ const SlickScroll = (props) => {
         })
         let currentArtists = artists;
 
-       setArtists( ...currentArtists, newArtists);
-       console.log(newArtists);
-       setIsLoaded(true);
+        setArtists(...currentArtists, newArtists);
+        console.log(newArtists);
+        setIsLoaded(true);
     }
-    
+
     const { isLoading, error, sendRequest: fetchArtist } = useHttp(
-        { url: `https://theaudiodb.com/api/v1/json/2/artist.php?i=`,
-          values: artistsIds
-    },
+        {
+            url: `https://theaudiodb.com/api/v1/json/2/artist.php?i=`,
+            values: artistsIds
+        },
         getArtist)
 
-    useEffect( () => {
+    useEffect(() => {
+        setPlaceholders();
         fetchArtist();
-       }, [])
-    const images = isLoaded ? ( artists.map( item => (
-        <img src={item.image} />
+    }, [])
+
+    const images = isLoaded ? (artists.map(item => (
+        (<ImageThumb item={item} id={item.id} image={item.image}/>)
     ))
     )
-    : (artists.map ( item => (
-        ( <p>Text</p> )
-    )))
-      
-    
+        : (artists.map(item => (
+            (<ImageThumb image={dummyThumb} disabled="disabled"/>)
+        )))
 
     return (
-        <div className="row">
-            <div className="col">
-            { 
+        <div className="row justify-content-center mt-4">
+            {
                 images
             }
-            </div>
         </div>
     )
 }
