@@ -43,7 +43,6 @@ const SlickScroll = (props) => {
         let currentArtists = artists;
 
         setArtists(...currentArtists, newArtists);
-        console.log(newArtists);
         setIsLoaded(true);
     }
 

@@ -7,22 +7,18 @@ const ImageThumb = (props) => {
     const [isAddFavButtonClicked, setFavButtonClicked] = useState(false);
     const [isInTheFavorites, setIsInTheFavorites] = useState(false);
     const favCtx = new useContext(DataContext);
-    // check if props.id is already in the favCtx.favoriteArtists(id:)
 
     useEffect( () => {
-    
+        console.log("useEffect");
         const index = favCtx.favoriteArtists.findIndex( item => 
             props.id === item.id
         );
-        console.log(index);
-        if (index >= 0) {
-            console.log(index);
+        if (index != -1) {
             setIsInTheFavorites(true);
-            console.log(isInTheFavorites);
+        } else {
+            setIsInTheFavorites(false);
         }
     }, [favCtx.favoriteArtists])
-
-   
 
     let buttonClasses="btn btn-sm mt-3 mb-4";
 
@@ -30,7 +26,7 @@ const ImageThumb = (props) => {
         setFavButtonClicked(true);
         const timer = setTimeout(() => {
            setFavButtonClicked(false);
-        },1500 );
+        },300 );
        // setFavButtonClicked(false);
         favCtx.addToFav(props.item);
         return () => {
@@ -50,9 +46,6 @@ const ImageThumb = (props) => {
 
                     { isAddFavButtonClicked ? 'Adding...' : isInTheFavorites ?  'Already in ' : 'Add to fav' }
                 </button>
-                {
-     isInTheFavorites ? <p>It is</p> : <p>Not</p>
-                }
         </div>
     )
 }

@@ -31,10 +31,8 @@ const favReducer = (state, action) => {
             const newArrayOfFavs = state.favoriteArtists.filter ( (item) => 
                 item.id !== action.id
             )
-            console.log(newArrayOfFavs);
             return {
-                favoriteArtists: [...newArrayOfFavs]
-            
+                favoriteArtists: [...newArrayOfFavs] 
         }
     }
     return defaultFavState;
